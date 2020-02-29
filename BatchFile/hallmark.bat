@@ -1,3 +1,3 @@
 @echo off
-python "C:\Users\awilm\Desktop\Workspaces\PyCharm Workspace\HallmarkMovieBingo\hallmark.py" %*
+python "C:\Your\Python\Directory\Path\Here" %*
 pause
