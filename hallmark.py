@@ -14,7 +14,7 @@ def create_board(board, c):
         b15=board[15], b16=board[16], b17=board[17], b18=board[18], b19=board[19], b20=board[20],
         b21=board[21], b22=board[22], b23=board[23], b24=board[24]
     )
-    document.write('board_{}.docx'.format(c))
+    document.write(os.getcwd()+'/Boards/'+'board_{}.docx'.format(c))
 
 
 def run(c):
@@ -37,10 +37,9 @@ def run(c):
     create_board(final_board, c)
 
 
-if __name__ == '__main__':
-    num_players = input("Enter total number of players: ")
+def remove_and_create_boards(num_players):
     # Remove previous boards
-    for file in os.listdir('.'):
+    for file in os.listdir('./Boards/'):
         if file.startswith("board"):
             try:
                 os.remove(file)
@@ -51,4 +50,4 @@ if __name__ == '__main__':
     for x in range(int(num_players)):
         run(count)
         count += 1
-    print("{} boards written to {}. ".format(count, os.getcwd()))
+    print("{} boards written to {}/Boards. ".format(count, os.getcwd()))
