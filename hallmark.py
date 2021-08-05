@@ -38,7 +38,7 @@ def select_board_pieces(c):
 
 
 def remove_and_create_boards(num_players):
-    # Remove previous boards in boards folder
+    # Remove previous boards
     for file in os.listdir(os.getcwd()+'\\Boards'):
         if file.startswith("board"):
             try:
