@@ -7,8 +7,8 @@ hallmark = importlib.import_module('hallmark')
 root = tk.Tk()
 
 
-def run_board_builder():
-    hallmark.remove_and_create_boards(5)
+# def run_board_builder():
+#     hallmark.remove_and_create_boards(5)
 
 
 canvas = tk.Canvas(root, height=700, width=900, bg="#263d42")
@@ -20,7 +20,7 @@ frame.place(relwidth=0.8, relheight=0.8, relx=0.1, rely=0.1)
 player_input = tk.Entry(frame)
 player_input.pack()
 
-confirm = tk.Button(frame, text="OK", padx=10, pady=5, fg="white", bg="#263d42", command=run_board_builder())
-confirm.pack()
+ok_button = tk.Button(frame, text="OK", padx=10, pady=5, fg="white", bg="#263d42", command=lambda: hallmark.remove_and_create_boards(player_input.get()))
+ok_button.pack()
 
 root.mainloop()

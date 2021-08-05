@@ -39,10 +39,10 @@ def run(c):
 
 def remove_and_create_boards(num_players):
     # Remove previous boards
-    for file in os.listdir('./Boards/'):
+    for file in os.listdir(os.getcwd()+'\\Boards'):
         if file.startswith("board"):
             try:
-                os.remove(file)
+                os.remove(os.getcwd()+'\\Boards\\'+file)
             except FileNotFoundError:
                 print("File to delete not found..")
                 pass
@@ -50,4 +50,4 @@ def remove_and_create_boards(num_players):
     for x in range(int(num_players)):
         run(count)
         count += 1
-    print("{} boards written to {}/Boards. ".format(count, os.getcwd()))
+    print("{} boards written to {}\\Boards. ".format(count, os.getcwd()))
