@@ -17,7 +17,7 @@ def create_board(board, c):
     document.write(os.getcwd()+'/Boards/'+'board_{}.docx'.format(c))
 
 
-def run(c):
+def select_board_pieces(c):
     board_pieces = ["All is well in the end", "Dead Spouse", "Dead Mother", "Dead Father", "Alicia Witt", "Lacie Chabert", "Danica Mckellar",
                     "Guy Named \"Nick\"", "Mistaken Identity", "Prince/Princess Unknown", "Gingerbread", "Betty", "Baking Job/ Bakery",
                     "Terrible Graphics", "Falling into his arms", "Ice Sculpting", "Mary", "Holly", "Inn with X-mas theme", "LSC: Overwork",
@@ -48,6 +48,6 @@ def remove_and_create_boards(num_players):
                 pass
     count = 0
     for x in range(int(num_players)):
-        run(count)
+        select_board_pieces(count)
         count += 1
     print("{} boards written to {}\\Boards. ".format(count, os.getcwd()))
