@@ -51,3 +51,13 @@ def remove_and_create_boards(num_players):
         select_board_pieces(count)
         count += 1
     print("{} boards written to {}\\Boards. ".format(count, os.getcwd()))
+
+
+def print_boards():
+    for file in os.listdir(os.getcwd()+'\\Boards'):
+        if file.startswith("board"):
+            try:
+                os.startfile(os.getcwd()+"\\Boards\\")
+            except FileNotFoundError:
+                print("File to delete not found..")
+                pass
