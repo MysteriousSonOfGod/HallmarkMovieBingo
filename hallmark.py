@@ -14,10 +14,10 @@ def create_board(board, c):
         b15=board[15], b16=board[16], b17=board[17], b18=board[18], b19=board[19], b20=board[20],
         b21=board[21], b22=board[22], b23=board[23], b24=board[24]
     )
-    document.write('board_{}.docx'.format(c))
+    document.write(os.getcwd()+'/Boards/'+'board_{}.docx'.format(c))
 
 
-def run(c):
+def select_board_pieces(c):
     board_pieces = ["All is well in the end", "Dead Spouse", "Dead Mother", "Dead Father", "Alicia Witt", "Lacie Chabert", "Danica Mckellar",
                     "Guy Named \"Nick\"", "Mistaken Identity", "Prince/Princess Unknown", "Gingerbread", "Betty", "Baking Job/ Bakery",
                     "Terrible Graphics", "Falling into his arms", "Ice Sculpting", "Mary", "Holly", "Inn with X-mas theme", "LSC: Overwork",
@@ -37,18 +37,27 @@ def run(c):
     create_board(final_board, c)
 
 
-if __name__ == '__main__':
-    num_players = input("Enter total number of players: ")
+def remove_and_create_boards(num_players):
     # Remove previous boards
-    for file in os.listdir('.'):
+    for file in os.listdir(os.getcwd()+'\\Boards'):
         if file.startswith("board"):
             try:
-                os.remove(file)
+                os.remove(os.getcwd()+'\\Boards\\'+file)
             except FileNotFoundError:
                 print("File to delete not found..")
                 pass
     count = 0
     for x in range(int(num_players)):
-        run(count)
+        select_board_pieces(count)
         count += 1
-    print("{} boards written to {}. ".format(count, os.getcwd()))
+    print("{} boards written to {}\\Boards. ".format(count, os.getcwd()))
+
+
+def print_boards():
+    for file in os.listdir(os.getcwd()+'\\Boards'):
+        if file.startswith("board"):
+            try:
+                os.startfile(os.getcwd()+"\\Boards\\")
+            except FileNotFoundError:
+                print("File to delete not found..")
+                pass
